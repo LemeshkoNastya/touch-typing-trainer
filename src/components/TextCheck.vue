@@ -15,13 +15,10 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   watch: {
-    symbols() {
-      document.addEventListener("keydown", this.pressKey);
-    },
     indexSymbol() {
       this.wrongSymbol(false);
     },
@@ -36,7 +33,6 @@ export default {
   },
   methods: {
     ...mapMutations(["updateIndexSymbol", "wrongSymbol"]),
-    ...mapActions(["loadText"]),
     pressKey({ key }) {
       if (key !== "Shift") {
         if (this.currentSymbol !== key) {
@@ -48,7 +44,7 @@ export default {
     },
   },
   created() {
-    this.loadText();
+    document.addEventListener("keydown", this.pressKey);
   },
 };
 </script>
@@ -58,7 +54,8 @@ export default {
 
 .symbol {
   font-family: "Roboto", sans-serif;
-  line-height: 1.5;
+  line-height: 2;
+  font-size: 24px;
 
   &_current {
     background: #5fd837;

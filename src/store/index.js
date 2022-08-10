@@ -11,6 +11,8 @@ export default new Vuex.Store({
         wrongSymbol: false,
         timer: 0,
         countError: 0,
+        loading: true,
+        errorLoading: null,
     },
     getters: {
         symbols(state) {
@@ -35,10 +37,16 @@ export default new Vuex.Store({
             return state.symbols.length;
         },
         accuracy(state, getters) {
-            return (getters.countSymbols - state.countError) / getters.countSymbols * 100;
+            return getters.countSymbols ? (getters.countSymbols - state.countError) / getters.countSymbols * 100 : 0;
         },
         countError(state) {
             return state.countError;
+        },
+        loading(state) {
+            return state.loading;
+        },
+        errorLoading(state) {
+            return state.errorLoading;
         }
     },
     mutations: {
@@ -62,6 +70,12 @@ export default new Vuex.Store({
             state.timer = 0;
             state.countError = 0;
         },
+        updateLoading(state, value) {
+            state.loading = value;
+        },
+        updateErrorLoading(state, error) {
+            state.errorLoading = error;
+        },
     },
     actions: {
         async loadText(context) {
@@ -71,15 +85,20 @@ export default new Vuex.Store({
                 .then((response) => {
                     if (response.status !== 200) {
                         console.log("Статус ошибки:", response.status);
+                        context.commit("updateErrorLoading", `Статус ошибки: ${response.status}`);
+                        context.commit("updateLoading", false);
                         return Promise.reject();
                     }
                     return response.json();
                 })
                 .then((data) => {
                     context.commit("updateText", data[0]);
+                    context.commit("updateLoading", false);
                 })
                 .catch((e) => {
                     console.log("Ошибка:", e);
+                    context.commit("updateErrorLoading", e);
+                    context.commit("updateLoading", false);
                 });
         },
     }
