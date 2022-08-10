@@ -26,7 +26,10 @@ export default new Vuex.Store({
         },
         timer(state) {
             return state.timer;
-        }
+        },
+        speed(state) {
+            return state.indexSymbol > 0 ? (state.indexSymbol + 1) / state.timer * 60 : 0;
+        },
     },
     mutations: {
         updateText(state, value) {
