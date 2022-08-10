@@ -9,6 +9,7 @@ export default new Vuex.Store({
         symbols: [],
         indexSymbol: 0,
         wrongSymbol: false,
+        timer: 0,
     },
     getters: {
         symbols(state) {
@@ -23,6 +24,9 @@ export default new Vuex.Store({
         isWrong(state) {
             return state.wrongSymbol;
         },
+        timer(state) {
+            return state.timer;
+        }
     },
     mutations: {
         updateText(state, value) {
@@ -34,6 +38,9 @@ export default new Vuex.Store({
         },
         wrongSymbol(state, value) {
             state.wrongSymbol = value;
+        },
+        updateTimer(state) {
+            state.timer++;
         },
     },
     actions: {
