@@ -10,6 +10,7 @@ export default new Vuex.Store({
         indexSymbol: 0,
         wrongSymbol: false,
         timer: 0,
+        countError: 0,
     },
     getters: {
         symbols(state) {
@@ -30,6 +31,12 @@ export default new Vuex.Store({
         speed(state) {
             return state.indexSymbol > 0 ? (state.indexSymbol + 1) / state.timer * 60 : 0;
         },
+        countSymbols(state) {
+            return state.symbols.length;
+        },
+        accuracy(state, getters) {
+            return (getters.countSymbols - state.countError) / getters.countSymbols * 100;
+        },
     },
     mutations: {
         updateText(state, value) {
@@ -41,6 +48,7 @@ export default new Vuex.Store({
         },
         wrongSymbol(state, value) {
             state.wrongSymbol = value;
+            if (value) state.countError++;
         },
         updateTimer(state) {
             state.timer++;

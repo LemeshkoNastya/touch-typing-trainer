@@ -11,7 +11,12 @@ function speedFormat(value) {
     return Math.floor(value) + ' зн./мин';
 }
 
+function accuracyFormat(value) {
+    return Math.floor(value) + ' %';
+}
+
 export {
     timerFormat,
-    speedFormat
+    speedFormat,
+    accuracyFormat
 }
