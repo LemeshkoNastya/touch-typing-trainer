@@ -3,6 +3,7 @@
     <p>Время - {{ timer | timerFormat }}</p>
     <p>Скорость - {{ speed | speedFormat }}</p>
     <p>Точность - {{ accuracy | accuracyFormat }}</p>
+    <p>Количество ошибок - {{ countError }}</p>
   </div>
 </template>
 
@@ -21,11 +22,7 @@ export default {
     accuracyFormat,
   },
   computed: {
-    ...mapGetters({
-      timer: "timer",
-      speed: "speed",
-      accuracy: "accuracy",
-    }),
+    ...mapGetters(["timer", "speed", "accuracy", "countError"]),
   },
 };
 </script>

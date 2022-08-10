@@ -37,6 +37,9 @@ export default new Vuex.Store({
         accuracy(state, getters) {
             return (getters.countSymbols - state.countError) / getters.countSymbols * 100;
         },
+        countError(state) {
+            return state.countError;
+        }
     },
     mutations: {
         updateText(state, value) {
