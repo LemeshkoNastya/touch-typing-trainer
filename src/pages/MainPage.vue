@@ -1,7 +1,16 @@
 <template>
-  <h1>Главная страница</h1>
+  <div>
+    <h1>Главная страница</h1>
+    <TextCheck />
+  </div>
 </template>
 
 <script>
-export default {};
+import TextCheck from "@/components/TextCheck";
+
+export default {
+  components: { TextCheck },
+};
 </script>
+
+<style lang="scss"></style>
