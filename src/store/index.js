@@ -56,6 +56,12 @@ export default new Vuex.Store({
         updateTimer(state) {
             state.timer++;
         },
+        reset(state) {
+            state.indexSymbol = 0;
+            state.wrongSymbol = false;
+            state.timer = 0;
+            state.countError = 0;
+        },
     },
     actions: {
         async loadText(context) {
