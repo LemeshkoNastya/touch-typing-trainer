@@ -1,24 +1,30 @@
 # touch-typing-trainer
 
-## Project setup
+## [Demo](https://lemeshkonastya.github.io/touch-typing-trainer)
+
+![Deploy project](https://github.com/LemeshkoNastya/touch-typing-trainer/blob/master/demo.png)
+
+### Установка проекта
+
 ```
+# Клонировать репозиторий
+
+git clone https://github.com/LemeshkoNastya/touch-typing-trainer
+
+# Перейти в репозиторий
+
+cd touch-typing-trainer
+
+# Установить зависимости
+
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+# Сборка проекта в режиме разработки
 
-### Compiles and minifies for production
-```
+npm run dev
+
+# Сборка проекта в режиме продакшн
+
 npm run build
-```
 
-### Lints and fixes files
 ```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
