@@ -2,7 +2,7 @@
 
 ## [Demo](https://lemeshkonastya.github.io/touch-typing-trainer)
 
-![Deploy project](https://github.com/LemeshkoNastya/touch-typing-trainer/blob/master/demo.png)
+![Deploy project](https://github.com/LemeshkoNastya/touch-typing-trainer/blob/main/demo.png)
 
 ### Установка проекта
 
