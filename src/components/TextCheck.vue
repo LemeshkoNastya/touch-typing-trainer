@@ -57,6 +57,10 @@ export default {
   line-height: 2;
   font-size: 24px;
 
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+
   &_current {
     background: #5fd837;
     color: white;

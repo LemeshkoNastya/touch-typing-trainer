@@ -1,28 +1,38 @@
 <template>
   <div class="info">
-    <div class="info__item">
-      <v-icon class="info__icon">mdi-timer-outline</v-icon>
-      <span>Время</span>
-    </div>
-    <p class="info__value">{{ timer | timerFormat }}</p>
+    <div class="info__items">
+      <div class="info__item">
+        <div class="info__title">
+          <v-icon class="info__icon">mdi-timer-outline</v-icon>
+          <span>Время</span>
+        </div>
+        <p class="info__value">{{ timer | timerFormat }}</p>
+      </div>
 
-    <div class="info__item">
-      <v-icon class="info__icon">mdi-speedometer-slow</v-icon>
-      <span>Скорость</span>
-    </div>
-    <p class="info__value">{{ speed | speedFormat }}</p>
+      <div class="info__item">
+        <div class="info__title">
+          <v-icon class="info__icon">mdi-speedometer-slow</v-icon>
+          <span>Скорость</span>
+        </div>
+        <p class="info__value">{{ speed | speedFormat }}</p>
+      </div>
 
-    <div class="info__item">
-      <v-icon class="info__icon">mdi-bullseye-arrow</v-icon>
-      <span>Точность</span>
-    </div>
-    <p class="info__value">{{ accuracy | accuracyFormat }}</p>
+      <div class="info__item">
+        <div class="info__title">
+          <v-icon class="info__icon">mdi-bullseye-arrow</v-icon>
+          <span>Точность</span>
+        </div>
+        <p class="info__value">{{ accuracy | accuracyFormat }}</p>
+      </div>
 
-    <div class="info__item">
-      <v-icon class="info__icon">mdi-alert</v-icon>
-      <span>Количество ошибок</span>
+      <div class="info__item">
+        <div class="info__title">
+          <v-icon class="info__icon">mdi-alert</v-icon>
+          <span>Количество ошибок</span>
+        </div>
+        <p class="info__value">{{ countError }}</p>
+      </div>
     </div>
-    <p class="info__value">{{ countError }}</p>
 
     <Button @click.native="resetGame" :text="'Заново'" />
   </div>
@@ -66,10 +76,33 @@ export default {
   font-family: "Roboto", sans-serif;
   min-width: 200px;
 
+  @media (max-width: 768px) {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  &__items {
+    @media (max-width: 768px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
   &__item {
+    @media (max-width: 768px) {
+      margin-right: 20px;
+    }
+  }
+
+  &__title {
     display: flex;
     align-items: center;
     font-size: 20px;
+    color: gray;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 
   &__icon {
@@ -80,6 +113,10 @@ export default {
     margin-bottom: 20px;
     font-size: 32px;
     color: #55c5ff;
+
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
   }
 }
 </style>

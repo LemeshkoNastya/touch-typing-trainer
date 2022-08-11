@@ -82,14 +82,31 @@ body {
   border-radius: 20px;
   max-width: 1200px;
 
+  @media (max-width: 1440px) {
+    max-width: 80%;
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+
   &__title {
     margin-bottom: 50px;
     font-size: 36px;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
   }
 
   &__content {
     display: flex;
     margin-top: 30px;
+
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+    }
   }
 }
 </style>
